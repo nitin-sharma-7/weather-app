@@ -30,13 +30,19 @@
         <form class="bg-white rounded-3xl overflow-hidden sm:px-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)]" action="/">
           <i class="fa-solid fa-magnifying-glass  hidden sm:inline sm:px-2"></i>
           <input
-            class="w-[100px] pl-2 py-1 sm:w-[300px] focus:outline-none  md:py-2"
+            class="input-city w-[100px] pl-2 py-1 sm:w-[300px] focus:outline-none  md:py-2"
             type="text"
             name="input-city"
             placeholder="City Name"
           />
+          
+          <button class=" search-btn relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+            <span class="relative px-5 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              <i class="fa-solid fa-plus"></i>
+            </span>
+            </button>
         </form>
-        <button class="bg-green-400 sm:px-2 py-1 rounded-[20px]">
+        <button class="current-location bg-green-400 sm:px-2 py-1 rounded-[20px]">
           <i class="fa-solid fa-location-crosshairs px-2"></i><span class="hidden md:inline">Current Location
           </span></button>
           <div><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline ">Recent cities</span></div>
