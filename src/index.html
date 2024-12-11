@@ -24,7 +24,7 @@
   <body class="bg-gradient-to-r from-violet-200 to-pink-200 text-slate-700">
     <header class="w-[100%] flex justify-center">
       <div
-        class="flex w-[100%] lg:w-[80%] bg-white justify-between items-center h-14 px-5 py-5 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] sm:rounded-xl"
+        class="flex w-[100%] lg:w-[80%] bg-white justify-between items-center h-20 px-5 py-5 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] sm:rounded-xl"
       >
         <h1>Weather</h1>
         <form class="bg-white rounded-3xl overflow-hidden sm:px-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)]" action="/">
@@ -56,9 +56,9 @@
           <div
             class="flex flex-col justify-center items-center lg:w-[20%] lg:h-[220px] w-[100%] h-[150px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] "
           >
-            <p class="font-bold sm:text-2xl text-4xl tracking-widest">Athens</p>
-            <p class="font-bold text-3xl md:text-4xl lg:tracking-widest">09:03</p>
-            <p class="font-thin flex flex-wrap justify-center items-center w-[80%]">Thursday, 31 Aug</p>
+            <p class="city-name font-bold sm:text-2xl text-4xl tracking-widest">city</p>
+            <p class="time font-bold text-3xl md:text-4xl lg:tracking-widest">time</p>
+            <p class="date font-bold tracking-widest md:font-thin flex flex-wrap justify-center items-center w-[80%]">date</p>
           </div>
           <!-- top right -->
           <div
@@ -67,10 +67,10 @@
             <!-- inside top right -->
             <!-- left -->
             <div class="flex flex-col w-[40%] sm:w-[33%] justify-between items-center">
-              <p class=" text-3xl md:text-4xl font-bold tracking-widest">24°C</p>
+              <p class=" text-3xl md:text-4xl font-bold tracking-widest"><span class="temp">temp</span>&nbsp;°C</p>
               <p class="flex items-center">
                 <span class="text-sm font-thin">Feels like : &nbsp;</span>
-                <span class="md:text-l">22°C</span>
+                <span class="md:text-l"><span class="feels-like">feel temp</span>&nbsp;°C</span>
               </p>
 
               <div class="flex w-[80%] justify-between items-center">
@@ -82,7 +82,7 @@
                     />
                   </div>
                   <p class="font-bold">Sunrise</p>
-                  <p>06:37 AM</p>
+                  <p class="sunrise"></p>
                 </div>
                 <div class="lg:w-[45%] flex flex-col justify-center items-center ">
                   <div class="w-8 md:w-10">
@@ -92,14 +92,14 @@
                     />
                   </div>
                   <p class="font-bold">Sunset</p>
-                  <p>20:37 AM</p>
+                  <p class="sunset"></p>
                 </div>
               </div>
             </div>
             <!-- middle -->
             <div class="flex flex-col w-[27%] md:w-[32%] sm:justify-between items-center">
-              <div><img class="w-[100px] md:w-[130px]" src="https://cdn-icons-gif.flaticon.com/11200/11200542.gif" alt="sunny icon"></div>
-              <p class="font-bold text-3xl pb-4">Sunny</p>
+              <div><img class="condition-icon w-[100px] md:w-[130px]" src="https://cdn-icons-gif.flaticon.com/11200/11200542.gif" alt="sunny icon"></div>
+              <p class="condition font-bold text-3xl pb-4">Sunny</p>
             </div>
             <!-- right -->
             <div
@@ -112,26 +112,26 @@
                     alt="humidity image"
                   />
                 </div>
-                <p>41%</p>
+                <p ><span class="humidity"></span>&nbsp;%</p>
                 <p class="font-bold">Humidity</p>
               </div>
               <div class="lg:w-[45%] flex flex-col justify-center items-center ">
                 <div class="w-8 md:w-10">
                   <img src="https://cdn-icons-gif.flaticon.com/8793/8793300.gif" alt="wind image"></i>
                 </div>
-                <p>2km/h</p>
+                <p><span class="wind"></span>&nbsp;km/h</p>
                 <p class="font-bold">Wind Speed</p>
               </div>
               <div class="lg:w-[45%] flex flex-col justify-center items-center ">
                 <div class="w-8 md:w-10"><img src="https://cdn-icons-gif.flaticon.com/8721/8721040.gif" alt="atmospheric pressure image"></div>
-                <p>997hPa</p>
+                <p><span class="pressure"></span>&nbsp;mb</p>
                 <p class="font-bold">Pressure</p>
               </div>
               <div class="lg:w-[45%] flex flex-col justify-center items-center ">
                 <div class="w-8 md:w-10">
                   <img src="https://cdn-icons-gif.flaticon.com/9517/9517176.gif" alt=" uv index">
                 </div>
-                <p >8</p>
+                <p ><span class="uv"></span>&nbsp;</p>
                 <p class="font-bold">UV Index</p>
               </div>
             </div>
