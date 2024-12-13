@@ -3,6 +3,8 @@
 const input = document.querySelector(".input-city");
 const addBtn = document.querySelector(".search-btn");
 const currentLocaion = document.querySelector(".current-location");
+const hourForecast = document.querySelector(".hourly-forecast");
+const daysForecast = document.querySelector(".five-days-forecast");
 
 //
 let cityData;
@@ -129,7 +131,6 @@ function currrentLocation() {
 }
 
 function renderData(data) {
-  console.log(data);
   const cityName = document.querySelector(".city-name");
   const time = document.querySelector(".time");
   const date = document.querySelector(".date");
@@ -161,6 +162,55 @@ function renderData(data) {
     "src",
     `${weatherIcons[`${data.current.condition.text}`]}`
   );
+  let arrHours = data.forecast.forecastday[0].hour; // array of hours data
+  //   console.log(arrHours);
+  //for hourly forecast
+  hourForecast.innerHTML = "";
+
+  for (let i = 0; i <= 23; i += 5) {
+    // console.log(arrHours[i]);
+    const hourDIv = document.createElement("div");
+    hourDIv.classList.add("w-[100%]");
+    const hourHtml = ` <div class="flex justify-between items-center w-[100%] py-1">
+                    <p>${arrHours[i].time.toString().slice(11)}</p>
+                    <img class="w-8" src='${
+                      weatherIcons[`${arrHours[i].condition.text.trim()}`]
+                    }' alt="${arrHours[i].condition.text.trim()}">
+                    <P class="font-bold">${arrHours[
+                      i
+                    ].condition.text.trim()}</P>
+                    <p>${arrHours[i].temp_c} °C</p>
+                  </div>`;
+
+    hourDIv.innerHTML = hourHtml;
+    hourForecast.append(hourDIv);
+  }
+  //five days forecast
+  daysForecast.innerHTML = "";
+  const forecastDays = data.forecast.forecastday;
+  forecastDays.map((day) => {
+    console.log(day);
+    const forecastDiv = document.createElement("div");
+    forecastHtml = `<div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl text-[14px]">
+                  <p>${day.date}</p>
+                  <img class="w-10" src="${
+                    weatherIcons[`${day.day.condition.text.trim()}`]
+                  }" alt="">
+                  <p><span>Temp :</span>&nbsp;<span>${
+                    day.day.maxtemp_c
+                  } °C</span></p>
+                  <p><span>Wind :</span>&nbsp;<span>${
+                    day.day.maxwind_kph
+                  } km/h</span></p>
+                  <p><span>Humidity :</span>&nbsp;<span>${
+                    day.day.avghumidity
+                  } %</span></p>
+                </div>`;
+    forecastDiv.innerHTML = forecastHtml;
+    daysForecast.append(forecastDiv);
+  });
+
+  //
 }
 
 currrentLocation();

@@ -42,7 +42,7 @@
             </span>
             </button>
         </form>
-        <button class="current-location bg-green-400 sm:px-2 py-1 rounded-[20px]">
+        <button class="current-location bg-green-500 sm:px-2 py-1 rounded-[20px] hover:bg-blue-700 hover:text-white">
           <i class="fa-solid fa-location-crosshairs px-2"></i><span class="hidden md:inline">Current Location
           </span></button>
           <div><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline ">Recent cities</span></div>
@@ -145,35 +145,8 @@
           >
             <div class="w-[80%] h-[100%] flex flex-col justify-center items-center " >
               <p class="font-bold text-xl">Hourly Forecast</p>
-              <div class="flex justify-between items-center w-[100%] py-1">
-                <p>09:03</p>
-                <img class="w-8" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p>27 C</p>
-                <img class="w-7 rotate-[31deg]" title="air direction" src="https://cdn-icons-gif.flaticon.com/7740/7740483.gif" alt="air direction image">
-              </div>
-              <div class="flex justify-between items-center w-[100%] py-1">
-                <p>09:03</p>
-                <img class="w-8" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p>27 C</p>
-                <img class="w-7" title="air direction" src="https://cdn-icons-gif.flaticon.com/7740/7740483.gif" alt="air direction image">
-              </div>
-              <div class="flex justify-between items-center w-[100%] py-1">
-                <p>09:03</p>
-                <img class="w-8" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p>27 C</p>
-                <img class="w-7" title="air direction" src="https://cdn-icons-gif.flaticon.com/7740/7740483.gif" alt="air direction image">
-              </div>
-              <div class="flex justify-between items-center w-[100%] py-1">
-                <p>09:03</p>
-                <img class="w-8" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p>27 C</p>
-                <img class="w-7" title="air direction" title="air direction" src="https://cdn-icons-gif.flaticon.com/7740/7740483.gif" alt="air direction image">
-              </div>
-              <div class="flex justify-between items-center w-[100%] py-1">
-                <p>09:03</p>
-                <img class="w-8" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p>27 C</p>
-                <img class="w-7" title="air direction" src="https://cdn-icons-gif.flaticon.com/7740/7740483.gif" alt="air direction image">
+              <div class="hourly-forecast w-[100%]">
+                  <!-- hourly data  -->
               </div>
             </div>
           </div>
@@ -185,42 +158,8 @@
           
           <div class="flex flex-col w-[95%] h-[100%] items-center justify-between pb-1 xl:w-[100%]">
             <p class="font-bold text-xl">5 Days Forecast</p>
-            <div class="flex justify-center items-center gap-3 lg:gap-4 pb-3 sm:flex-nowrap flex-wrap xl:justify-evenly xl:w-[80%]"> 
-              <div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl">
-                <p class="text-[14px]">(24-04-2024)</p>
-                <img class="w-10" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p><span>Temp :</span>&nbsp;<span>20 C</span></p>
-                <p><span>Wind :</span>&nbsp;<span>2km/h</span></p>
-                <p><span>Humididy :</span>&nbsp;<span>41%</span></p>
-              </div>
-              <div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl">
-              <p class="text-[14px]">(24-04-2024)</p>
-              <img class="w-10" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-              <p><span>Temp :</span>&nbsp;<span>20 C</span></p>
-                <p><span>Wind :</span>&nbsp;<span>2km/h</span></p>
-                <p><span>Humididy :</span>&nbsp;<span>41%</span></p>
-              </div>
-              <div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl">
-                <p class="text-[14px]">(24-04-2024)</p>
-                <img class="w-10" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                <p><span>Temp :</span>&nbsp;<span>20 C</span></p>
-                <p><span>Wind :</span>&nbsp;<span>2km/h</span></p>
-                <p><span>Humididy :</span>&nbsp;<span>41%</span></p>
-              </div>
-            <div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl">
-              <p class="text-[14px]">(24-04-2024)</p>
-                          <img class="w-10" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                          <p><span>Temp :</span>&nbsp;<span>20 C</span></p>
-                          <p><span>Wind :</span>&nbsp;<span>2km/h</span></p>
-                          <p><span>Humididy :</span>&nbsp;<span>41%</span></p>
-                        </div>
-                      <div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl">
-                        <p class="text-[14px]">(24-04-2024)</p>
-                        <img class="w-10" src="https://cdn-icons-gif.flaticon.com/17102/17102931.gif" alt="">
-                                  <p><span>Temp :</span>&nbsp;<span>20 C</span></p>
-                      <p><span>Wind :</span>&nbsp;<span>2km/h</span></p>
-                      <p><span>Humididy :</span>&nbsp;<span>41%</span></p>
-                    </div>
+            <div class="five-days-forecast flex justify-center items-center gap-3 lg:gap-4 pb-3 sm:flex-nowrap flex-wrap xl:justify-evenly xl:w-[80%]"> 
+            
                   </div>
                 </div>
               </div>
