@@ -45,10 +45,23 @@
         <button class="current-location bg-green-500 sm:px-2 py-1 rounded-[20px] hover:bg-blue-700 hover:text-white">
           <i class="fa-solid fa-location-crosshairs px-2"></i><span class="hidden md:inline">Current Location
           </span></button>
-          <div><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline ">Recent cities</span></div>
+
+          <div class="relative"><div class="recent-box"><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline ">Recent cities</span></div>
+
+            <!--  -->
+            <div class="recent-cities flex flex-col justify-center items-center bg-purple-400 mt-5 right-0 hidden  absolute w-[150px] ">
+            
+            </div>
+
+
+           
+          <!--  -->
+          </div>
       </div>
     </header>
     <!--================= end of header section===============-->
+
+   
     <main class="w-[100%] flex justify-center">
       <div class="sm:w-[80%] w-[90%] h-[70vh]">
         <div class="upper flex lg:flex-row flex-col justify-between gap-6 pt-6">
@@ -168,6 +181,7 @@
         </div>
       </div>
     </main>
+    
   </body>
 </html>
 <!-- 

@@ -5,11 +5,16 @@ const addBtn = document.querySelector(".search-btn");
 const currentLocaion = document.querySelector(".current-location");
 const hourForecast = document.querySelector(".hourly-forecast");
 const daysForecast = document.querySelector(".five-days-forecast");
+const recentBox = document.querySelector(".recent-box");
+const recCities = document.querySelector(".recent-cities");
+const toggler = document.querySelector(".toggler");
 
 //
 let cityData;
 
 const weatherIcons = {
+  "Patchy rain nearby": "https://cdn-icons-gif.flaticon.com/14822/14822237.gif",
+
   Sunny: "https://cdn-icons-gif.flaticon.com/11200/11200542.gif",
 
   Clear: "https://cdn-icons-gif.flaticon.com/11708/11708865.gif",
@@ -83,6 +88,9 @@ const weatherIcons = {
 };
 
 //
+// for recent cities
+let recentCities = [];
+//
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let city = input.value;
@@ -108,6 +116,8 @@ async function fetchData(p) {
     // console.log(data);
     cityData = data;
     renderData(cityData);
+    // console.log(data.location["name"]);
+    addRecent(data.location["name"]);
   } catch (err) {
     alert(
       "Unable to fetch data. Please check your internet connection and try again."
@@ -162,9 +172,10 @@ function renderData(data) {
     "src",
     `${weatherIcons[`${data.current.condition.text}`]}`
   );
+  //for hourly forecast
+
   let arrHours = data.forecast.forecastday[0].hour; // array of hours data
   //   console.log(arrHours);
-  //for hourly forecast
   hourForecast.innerHTML = "";
 
   for (let i = 0; i <= 23; i += 5) {
@@ -189,7 +200,7 @@ function renderData(data) {
   daysForecast.innerHTML = "";
   const forecastDays = data.forecast.forecastday;
   forecastDays.map((day) => {
-    console.log(day);
+    // console.log(day);
     const forecastDiv = document.createElement("div");
     forecastHtml = `<div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl text-[14px]">
                   <p>${day.date}</p>
@@ -212,5 +223,34 @@ function renderData(data) {
 
   //
 }
+// recent city
+function addRecent(city) {
+  if (!recentCities.includes(city)) {
+    recentCities.push(city);
+    // console.log(recentCities);
+  }
+  console.log(recentCities);
+  localStorage.clear();
+  showRecent(recentCities);
+  localStorage.recent = JSON.stringify(recentCities);
+}
 
-currrentLocation();
+recentBox.addEventListener("click", () => {
+  recCities.classList.toggle("hidden");
+});
+
+function showRecent(recents) {
+  recCities.innerHTML = "";
+  recents.map((recent, i) => {
+    let div = document.createElement("div");
+    div.classList.add("flex");
+    div.classList.add("justify-between");
+    div.classList.add("w-[90%]");
+
+    div.innerHTML = ` <p>${recent}</p>
+            <button   ><i class="fa-solid fa-trash-can-arrow-up delete" data-index=${i}></i></button>`;
+    recCities.append(div);
+  });
+}
+
+// currrentLocation();
