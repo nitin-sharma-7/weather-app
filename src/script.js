@@ -116,7 +116,6 @@ async function fetchData(p) {
     // console.log(data);
     cityData = data;
     renderData(cityData);
-    // console.log(data.location["name"]);
     addRecent(data.location["name"]);
   } catch (err) {
     alert(
@@ -131,7 +130,6 @@ function currrentLocation() {
   navigator.geolocation.getCurrentPosition(
     (data) => {
       let cordinates = `${data.coords.latitude},${data.coords.longitude}`;
-      //   console.log(cordinates);
       fetchData(cordinates);
     },
     (err) => {
@@ -200,7 +198,6 @@ function renderData(data) {
   daysForecast.innerHTML = "";
   const forecastDays = data.forecast.forecastday;
   forecastDays.map((day) => {
-    // console.log(day);
     const forecastDiv = document.createElement("div");
     forecastHtml = `<div class="flex flex-col justify-center items-center shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-2 py-5 rounded-xl text-[14px]">
                   <p>${day.date}</p>
@@ -220,19 +217,16 @@ function renderData(data) {
     forecastDiv.innerHTML = forecastHtml;
     daysForecast.append(forecastDiv);
   });
-
-  //
 }
+
 // recent city
 function addRecent(city) {
   if (!recentCities.includes(city)) {
     recentCities.push(city);
-    // console.log(recentCities);
   }
-  console.log(recentCities);
   localStorage.clear();
-  showRecent(recentCities);
   localStorage.recent = JSON.stringify(recentCities);
+  showRecent(JSON.parse(localStorage.getItem("recent")));
 }
 
 recentBox.addEventListener("click", () => {
@@ -247,10 +241,28 @@ function showRecent(recents) {
     div.classList.add("justify-between");
     div.classList.add("w-[90%]");
 
-    div.innerHTML = ` <p>${recent}</p>
+    div.innerHTML = ` <p class='show' >${recent}</p>
             <button   ><i class="fa-solid fa-trash-can-arrow-up delete" data-index=${i}></i></button>`;
     recCities.append(div);
   });
 }
 
+//
+recCities.addEventListener("click", (e) => {
+  //   console.log(e.target.dataset.indexNumber);
+  if (e.target.classList.contains("delete")) {
+    deleteRecent(e.target);
+  }
+  if (e.target.classList.contains("show")) {
+    input.value = e.target.innerText;
+  }
+});
+function deleteRecent(val) {
+  recentCities.splice(val.dataset.index, 1);
+  // console.log(recentCities);
+  localStorage.clear();
+  localStorage.recent = JSON.stringify(recentCities);
+  showRecent(JSON.parse(localStorage.getItem("recent")));
+}
+showRecent(JSON.parse(localStorage.getItem("recent")));
 // currrentLocation();
