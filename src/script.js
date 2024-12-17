@@ -89,7 +89,8 @@ const weatherIcons = {
 
 //
 // for recent cities
-let recentCities = [];
+// or operator prevent data losss after refresh the page
+let recentCities = JSON.parse(localStorage.getItem("recent")) || [];
 //
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -107,21 +108,17 @@ async function fetchData(p) {
     const response = await fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=9b3c7cb761f84f48aa0145626240712&q=${p}&days=5`
     );
-    if (!response.ok) {
-      alert(
-        "Failed to fetch data. Please check the city name or try again later."
-      );
+    if (response.status == 400) {
+      alert("please check city name");
     }
+    // console.log(response.status);
     const data = await response.json();
     // console.log(data);
     cityData = data;
     renderData(cityData);
     addRecent(data.location["name"]);
   } catch (err) {
-    alert(
-      "Unable to fetch data. Please check your internet connection and try again."
-    );
-    console.log(err);
+    alert("please check your internet connection .");
   }
 }
 
@@ -228,9 +225,24 @@ function addRecent(city) {
   localStorage.recent = JSON.stringify(recentCities);
   showRecent(JSON.parse(localStorage.getItem("recent")));
 }
-
 recentBox.addEventListener("click", () => {
-  recCities.classList.toggle("hidden");
+  if (recentCities.length != 0) {
+    recCities.classList.toggle("hidden");
+  }
+});
+document.addEventListener("click", (e) => {
+  if (
+    !e.target.classList.contains("fa-list") &&
+    !e.target.classList.contains("recent-box") &&
+    !e.target.classList.contains("parent-recent") &&
+    !e.target.classList.contains("recent-cities") &&
+    !e.target.classList.contains("delete") &&
+    !e.target.classList.contains("recent-span") &&
+    !e.target.classList.contains("show")
+  ) {
+    recCities.classList.add("hidden");
+    // console.log(e.target);
+  }
 });
 
 function showRecent(recents) {
@@ -240,9 +252,14 @@ function showRecent(recents) {
     div.classList.add("flex");
     div.classList.add("justify-between");
     div.classList.add("w-[90%]");
+    div.classList.add("px-2");
+    div.classList.add("cursor-pointer");
+    div.classList.add(
+      "shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+    );
 
-    div.innerHTML = ` <p class='show' >${recent}</p>
-            <button   ><i class="fa-solid fa-trash-can-arrow-up delete" data-index=${i}></i></button>`;
+    div.innerHTML = ` <p class='show hover:text-black transition-all   hover:scale-110 ' >${recent}</p>
+            <button   ><i class="fa-solid fa-trash-can-arrow-up delete transition-all   hover:scale-125" data-index=${i}></i></button>`;
     recCities.append(div);
   });
 }
@@ -254,7 +271,8 @@ recCities.addEventListener("click", (e) => {
     deleteRecent(e.target);
   }
   if (e.target.classList.contains("show")) {
-    input.value = e.target.innerText;
+    // input.value = e.target.innerText;
+    fetchData(e.target.innerText);
   }
 });
 function deleteRecent(val) {

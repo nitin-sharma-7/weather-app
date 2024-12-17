@@ -17,6 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+TZ+Guides&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://cdn-icons-gif.flaticon.com/17484/17484896.gif" type="image/x-icon">
     <link href="./output.css" rel="stylesheet" />
     <script src="script.js" defer></script>
@@ -26,7 +29,8 @@
       <div
         class="flex w-[100%] lg:w-[80%] bg-white justify-between items-center h-20 px-5 py-5 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] sm:rounded-xl"
       >
-        <h1>Weather</h1>
+        <h1 style="font-family:Playwrite TZ Guides ;font-size: 24px;">Weather</h1>
+        
         <form class="bg-white rounded-3xl overflow-hidden sm:px-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)]" action="/">
           <i class="fa-solid fa-magnifying-glass  hidden sm:inline sm:px-2"></i>
           <input
@@ -37,21 +41,24 @@
           />
           
           <button class=" search-btn relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-            <span class="relative px-5 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <span class="relative px-5 py-1 transition-all ease-in duration-300 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               <i class="fa-solid fa-plus"></i>
             </span>
             </button>
         </form>
-        <button class="current-location bg-green-500 sm:px-2 py-1 rounded-[20px] hover:bg-blue-700 hover:text-white">
+        <button class="current-location transition-all ease-in duration-500 bg-green-500 sm:px-2 py-1 rounded-[20px] hover:bg-blue-500 hover:text-white">
           <i class="fa-solid fa-location-crosshairs px-2"></i><span class="hidden md:inline">Current Location
           </span></button>
 
-          <div class="relative"><div class="recent-box"><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline ">Recent cities</span></div>
+          <div class="relative parent-recent cursor-pointer hover:bg-gradient-to-br from-purple-600 to-blue-500 transition-all ease-in duration-500  p-1 hover:rounded-lg hover:text-white"><div class="recent-box"><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline recent-span ">Recent cities</span></div>
 
             <!--  -->
-            <div class="recent-cities flex flex-col justify-center items-center bg-gradient-to-r from-violet-200 to-pink-200 mt-5 right-0 hidden  absolute w-[150px] ">
+          <div class="recent-cities shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] bg-purple-100 mt-5 right-0 absolute w-[150px] p-2 rounded-[10px] hidden hover:text-slate-700 text-black">
+            <div class=" flex flex-col justify-center items-center  w-[150px] ">
             
             </div>
+          </div>
+            
 
 
            
@@ -67,7 +74,7 @@
         <div class="upper flex lg:flex-row flex-col justify-between gap-6 pt-6">
           <!-- top left -->
           <div
-            class="flex flex-col justify-center items-center lg:w-[20%] lg:h-[220px] w-[100%] h-[150px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] "
+            class="flex top-left flex-col justify-center items-center lg:w-[20%] lg:h-[220px] w-[100%] h-[150px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] "
           >
             <p class="city-name font-bold sm:text-2xl text-4xl tracking-widest">city</p>
             <p class="time font-bold text-3xl md:text-4xl lg:tracking-widest">time</p>
