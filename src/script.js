@@ -110,6 +110,7 @@ async function fetchData(p) {
     );
     if (response.status == 400) {
       alert("please check city name");
+      return;
     }
     // console.log(response.status);
     const data = await response.json();
