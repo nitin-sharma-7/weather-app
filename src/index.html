@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+     <!-- Font Awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
@@ -11,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+       <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,42 +22,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+TZ+Guides&display=swap" rel="stylesheet">
+  <!-- Favicon -->
     <link rel="shortcut icon" href="https://cdn-icons-gif.flaticon.com/17484/17484896.gif" type="image/x-icon">
+     <!-- Custom CSS -->
     <link href="./output.css" rel="stylesheet" />
+     <!-- JavaScript file -->
     <script src="script.js" defer></script>
   </head>
   <body class="bg-gradient-to-r from-violet-200 to-pink-200 text-slate-700">
+     <!-- Header Section -->
     <header class="w-[100%] flex justify-center">
       <div
         class="flex w-[100%] lg:w-[80%] bg-white justify-between items-center h-20 px-5 py-5 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] sm:rounded-xl"
       >
+      <!-- Title with refresh functionality -->
         <h1 title="Click to Refresh" style="font-family:Playwrite TZ Guides ;cursor: pointer ;font-size: 24px;" onclick="location.reload()">Weather</h1>
-        
+          <!-- Search Form -->
         <form class="bg-white rounded-3xl overflow-hidden sm:px-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)]" action="/">
           <i class="fa-solid fa-magnifying-glass  hidden sm:inline sm:px-2"></i>
           <input
-            class="input-city w-[100px] pl-2 py-1 sm:w-[300px] focus:outline-none  md:py-2"
+            class="input-city w-[90px] pl-2 py-1 sm:w-[150px] md:w-[170px] lg:w-[220px] focus:outline-none  md:py-2"
             type="text"
             name="input-city"
             placeholder="City Name"
           />
-          
+            <!-- Search Button -->
           <button class=" search-btn relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 active:scale-90">
             <span class="relative px-2 sm:px-5 sm:py-1 transition-all ease-in duration-300 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               <i class="fa-solid fa-plus"></i>
             </span>
             </button>
         </form>
+          <!-- Current Location Button -->
         <button class="current-location transition-all ease-in duration-500 bg-green-500 sm:px-2 py-1 rounded-[20px] hover:bg-blue-500 hover:text-white active:scale-50">
           <i class="fa-solid fa-location-crosshairs px-2"></i><span class="hidden md:inline">Current Location
           </span></button>
-
+  <!-- Recent Cities Dropdown -->
           <div class="relative parent-recent  "><div class="recent-box cursor-pointer hover:bg-gradient-to-br from-purple-600 to-blue-500 transition-all ease-in duration-500  p-1 hover:rounded-lg hover:text-white active:scale-50"><i class="fa-solid fa-list"></i>&nbsp;<span class="hidden sm:inline recent-span ">Recent cities</span></div>
 
             <!--  -->
           <div class="recent-cities max-h-52 shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] bg-purple-100 mt-5 right-0 absolute w-[150px] p-2 rounded-[10px] hidden hover:text-slate-700 text-black">
             <div class=" flex flex-col justify-center items-center  w-[150px] ">
-            
+            <!-- Recent cities will be populated here -->
             </div>
           </div>
             
@@ -68,7 +76,7 @@
     </header>
     <!--================= end of header section===============-->
 
-   
+     <!-- Main Content Section -->
     <main class="w-[100%] flex justify-center">
       <div class="sm:w-[80%] w-[90%] h-[70vh]">
         <div class="upper flex lg:flex-row flex-col justify-between gap-6 pt-6">
@@ -160,26 +168,28 @@
         <!-- lower section -->
         <div class="upper flex flex-col lg:flex-row justify-between gap-6 pt-6 ">
           <!-- left -->
+             <!-- Left Section for Hourly Forecast -->
           <div
-            class="md:w-[100%] lg:w-[25%] lg:h-[250px] md:h-[300px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex justify-center "
+            class="md:w-[100%] lg:w-[25%] lg:h-[270px] md:h-[320px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex justify-center "
           >
             <div class="w-[80%] h-[100%] flex flex-col justify-center items-center " >
               <p class="font-bold text-xl">Hourly Forecast</p>
               <div class="hourly-forecast w-[100%]">
-                  <!-- hourly data  -->
+                   <!-- Hourly data will be populated here -->
               </div>
             </div>
           </div>
 
           <!-- right -->
+            <!-- Right Section for 5 Days Forecast -->
           <div
-            class="lg:w-[75%] w-[100%]  lg:h-[250px] sm:h-[300px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex justify-center"
+            class="lg:w-[75%] w-[100%]  lg:h-[270px] sm:h-[320px] bg-white rounded-3xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] flex justify-center"
           >
           
           <div class="flex flex-col w-[95%] h-[100%] items-center justify-between pb-1 xl:w-[100%]">
             <p class="font-bold text-xl">5 Days Forecast</p>
             <div class="five-days-forecast flex justify-center items-center gap-3 lg:gap-4 pb-3 sm:flex-nowrap flex-wrap xl:justify-evenly xl:w-[80%]"> 
-            
+            <!-- 5 days forecast data will be populated here -->
                   </div>
                 </div>
               </div>
@@ -191,6 +201,7 @@
     
   </body>
 </html>
+<!-- Command to compile Tailwind CSS -->
 <!-- 
 npx tailwindcss -i ./src/input.css -o ./src/output.css --watch 
 -->
