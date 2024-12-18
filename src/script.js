@@ -125,12 +125,22 @@ async function fetchData(p) {
 
 ///
 function currrentLocation() {
+  let timerCondition = false;
+  const timer = setTimeout(() => {
+    timerCondition = true;
+    alert("Hi, it took too long to find your location.");
+  }, 5000);
   navigator.geolocation.getCurrentPosition(
     (data) => {
+      if (timerCondition) {
+        return;
+      }
+      clearTimeout(timer);
       let cordinates = `${data.coords.latitude},${data.coords.longitude}`;
       fetchData(cordinates);
     },
     (err) => {
+      clearTimeout(timer);
       console.log(err.message);
     }
   );
@@ -222,11 +232,16 @@ function addRecent(city) {
   if (!recentCities.includes(city)) {
     recentCities.push(city);
   }
+
   localStorage.clear();
   localStorage.recent = JSON.stringify(recentCities);
   showRecent(JSON.parse(localStorage.getItem("recent")));
 }
 recentBox.addEventListener("click", () => {
+  if (recentCities.length >= 5) {
+    recCities.classList.add("overflow-y-scroll");
+    // console.log(recentCities.length);
+  }
   if (recentCities.length != 0) {
     recCities.classList.toggle("hidden");
   }
@@ -259,8 +274,8 @@ function showRecent(recents) {
       "shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
     );
 
-    div.innerHTML = ` <p class='show hover:text-black transition-all   hover:scale-110 ' >${recent}</p>
-            <button   ><i class="fa-solid fa-trash-can-arrow-up delete transition-all   hover:scale-125" data-index=${i}></i></button>`;
+    div.innerHTML = ` <p class='show hover:text-black transition-all   hover:scale-110 active:scale-50 ease-in duration-500' >${recent}</p>
+            <button   ><i class="fa-solid fa-trash-can-arrow-up delete transition-all active:scale-50 ease-in duration-500   hover:scale-125" data-index=${i}></i></button>`;
     recCities.append(div);
   });
 }
