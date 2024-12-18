@@ -24,10 +24,13 @@ A simple and responsive weather application that allows users to search for weat
 ## Installation
 
 1. Clone the repository:
+   (https://github.com/nitin-sharma-7/weather-app.git)
 
 2. Open the index.html file in your web browser.
 3. (Optional) If you want to customize the styles, you can modify output.css file. To compile Tailwind CSS, run the following command:
    npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+4. see on github:
+   https://github.com/nitin-sharma-7/weather-app
 
 ## Usage
 
@@ -53,3 +56,6 @@ Tailwind CSS for the utility-first CSS framework.
 Google Fonts for the typography.
 
 ## live link
+
+To see live demo of app
+https://nitin-sharma-7.github.io/weather-app/src/
